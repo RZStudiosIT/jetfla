@@ -1,0 +1,93 @@
+CREATE TABLE destinos (
+    id_destino INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    pais VARCHAR(100) NOT NULL,
+    abrev VARCHAR(10) NULL -- Puedes ajustar el tamaño según tus necesidades
+);
+
+CREATE TABLE vuelos (
+    id_vuelo INT AUTO_INCREMENT PRIMARY KEY,
+    origen INT NOT NULL,
+    destino INT NOT NULL,
+    fecha_salida DATETIME NOT NULL,
+    fecha_llegada DATETIME NOT NULL,
+    costo_base DECIMAL(10, 2) NOT NULL,
+    tua DECIMAL(10, 2) NULL,
+    iva DECIMAL(10, 2) NULL,
+    FOREIGN KEY (origen) REFERENCES destinos(id_destino),
+    FOREIGN KEY (destino) REFERENCES destinos(id_destino)
+);
+
+CREATE TABLE costos_extras (
+    id_extra INT AUTO_INCREMENT PRIMARY KEY,
+    id_vuelo INT NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    costo DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_vuelo) REFERENCES vuelos(id_vuelo)
+);
+
+CREATE TABLE pasajeros (
+    id_pasajero INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    telefono VARCHAR(18) NOT NULL,
+    //documento_identidad VARCHAR(20) NOT NULL,
+    password VARCHAR(50) NULL -- Añadir el campo de contraseña (puede ser NULL)
+);
+
+CREATE TABLE reservas (
+    id_reserva INT AUTO_INCREMENT PRIMARY KEY,
+    id_pasajero INT NOT NULL,
+    id_vuelo_ida INT NOT NULL,
+    id_vuelo_vuelta INT NULL,
+    fecha_reserva DATETIME NOT NULL,
+    estado INT NOT NULL,
+    costo_total DECIMAL(10, 2) NOT NULL,
+    codigo_promocional VARCHAR(50) NULL,
+    FOREIGN KEY (id_pasajero) REFERENCES pasajeros(id_pasajero),
+    FOREIGN KEY (id_vuelo_ida) REFERENCES vuelos(id_vuelo),
+    FOREIGN KEY (id_vuelo_vuelta) REFERENCES vuelos(id_vuelo),
+    FOREIGN KEY (codigo_promocional) REFERENCES codigos_promocionales(codigo)
+);
+
+CREATE TABLE administradores (
+    id_admin INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE imagenes (
+    id_imagen INT AUTO_INCREMENT PRIMARY KEY,
+    url_imagen VARCHAR(170) NOT NULL,
+    descripcion VARCHAR(70),
+    fecha_subida DATETIME NOT NULL
+);
+
+CREATE TABLE cods_promos (
+    id_codigo INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(50) NOT NULL,
+    descuento DECIMAL(5, 2) NOT NULL,
+    fecha_inicio DATETIME NOT NULL,
+    fecha_fin DATETIME NOT NULL,
+    estado INT NOT NULL
+);
+
+CREATE TABLE asientos (
+    id_asiento INT AUTO_INCREMENT PRIMARY KEY,
+    id_vuelo INT NOT NULL,
+    numero_asiento VARCHAR(10) NOT NULL,
+    clase VARCHAR(50) NOT NULL,
+    estado VARCHAR(50) NOT NULL,
+    FOREIGN KEY (id_vuelo) REFERENCES vuelos(id_vuelo)
+);
+
+CREATE TABLE asientos_reservas (
+    id_asiento INT NOT NULL,
+    id_reserva INT NOT NULL,
+    PRIMARY KEY (id_asiento, id_reserva),
+    FOREIGN KEY (id_asiento) REFERENCES asientos(id_asiento),
+    FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
+);
