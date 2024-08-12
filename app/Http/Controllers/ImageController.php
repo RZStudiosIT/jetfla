@@ -18,7 +18,6 @@ class ImageController extends Controller
         }
     }
 
-
     public function font($font)
     {
         $path = resource_path('css/' . $font);
