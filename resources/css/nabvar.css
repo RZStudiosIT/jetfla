@@ -1,0 +1,345 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    background-color: #262E55;
+    height: 80px; /* Ajusta el tamaño de la navbar aquí */
+    color: white;
+}
+.navbar2 {
+    background-color: #262E55;
+    height: 216px; /* Ajusta el tamaño de la navbar aquí */
+    color: white;
+}
+.content {
+    padding: 20px;
+}
+.form-video-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-end; /* Ajusta el alineamiento hacia la derecha */
+}
+.form-container, .video-container {
+    flex: 1;
+    max-width: 600px;
+    min-width: 400px;
+    box-sizing: border-box;
+    border-radius: 20px; /* Border radius aplicado */
+}
+.form-container {
+    background-color: #f8bbd0; /* Color rosa suave */
+    padding: 20px;
+    margin-right: 20px; /* Margen para desplazar hacia la derecha */
+}
+.video-container {
+    background-color: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 315px; /* Altura fija para el iframe */
+    margin-right: 20px; /* Margen para desplazar hacia la derecha */
+}
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px; /* Border radius aplicado */
+}
+.who-we-are {
+    background-color: #c8e6c9;
+    padding: 20px;
+    text-align: center;
+}
+
+.destinos {
+    background-color: #c8e6c9;
+    padding: 20px;
+    text-align: center;
+}
+.footer {
+    background-color: #607d8b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    /*position: fixed;*/
+    bottom: 0;
+    width: 100%;
+}
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.switch-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 50px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    height: 40px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 34px;
+    width: 100px;
+    left: 4px;
+    bottom: 3px;
+    background-color: rgb(146, 21, 21);
+    transition: .4s;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+input:checked + .slider {
+    background-color: #E7EBFF;
+}
+
+input:checked + .slider:before {
+    transform: translateX(143px);
+}
+
+.switch-label {
+    position: absolute;
+    top: 8px;
+    font-weight: bold;
+}
+
+.label-left {
+    left: 15px;
+    color: #262E55;
+    transition: color 0.4s;
+}
+
+.label-right {
+    right: 15px;
+    color: #262E55;
+    transition: color 0.4s;
+}
+
+/* Cambiar el color del texto según la posición del slider */
+input:not(:checked) ~ .label-left {
+    color: #ffffff;
+}
+
+input:checked ~ .label-right {
+    color: #ffffff;
+}
+
+
+
+
+.form-container {
+    background-color: #262E55;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.custom-form-group {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.custom-form-group::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #fff;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para el campo de selección de pasajeros */
+.passenger-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.passenger-type-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.passenger-select-text {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.passenger-select-text-sm {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.quantity input {
+    width: 50px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.quantity .icon-negative,
+.quantity .icon-positive {
+    font-size: 1.2rem;
+}
+
+
+/*PARA PASAJEROS*/
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.select-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #E7EBFF;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.select-box i.arrow {
+    border: solid #262E55;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.select-box i.arrow.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 5px;
+}
+
+.passenger-counter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.passenger-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+.counter button {
+    background-color: #262E55;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.counter input {
+    width: 50px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #262E55;
+    font-size: 1rem;
+}
+
+.counter input[readonly] {
+    background-color: #E7EBFF;
+    border-radius: 5px;
+}
+
+/* IMAGEN DE LOGO CHIQUITA */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: translateY(-20px); /* Start off-screen */
+}
+.visible {
+    opacity: 1;
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+    transform: translateY(0); /* Fully visible */
+}
+.transition-up {
+    transform: translateY(-50px); /* Move up as you scroll */
+}
+.transition-down {
+    transform: translateY(50px); /* Move down as you scroll */
+}
