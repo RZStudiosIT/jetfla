@@ -1,3 +1,4 @@
+<!-- resources/views/newdestinos.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -463,7 +464,7 @@ select {
     });
   </script>
   
-<body>
+<body >
     <nav class="navbar navbar-expand-lg navbar-dark fade-in fixed-top" aria-label="Ninth navbar example">
         <div class="container-xl d-flex align-items-center">
             <!-- Imagen en la parte superior izquierda -->
@@ -521,7 +522,7 @@ select {
     
 
     <div class="content">
-        <div class="container form-video-section">
+        <div class="container form-video-section" data-aos="fade-up">
             {{-- FORMULARIO --}}
             <div class="form-container fade-in">
                 <form>
@@ -634,7 +635,7 @@ select {
             }
           </style>
         </div><br>
-        <div id="quienSos" class="who-we-are" onclick="toggleContent()">
+        <div id="quienSos" class="who-we-are" onclick="toggleContent()" data-aos="fade-up">
             <h2 class="txtTitles">¿Quiénes Somos?</h2>
             <div id="extraContent" class="extra-content">
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
@@ -658,46 +659,18 @@ select {
         </div>  
         
         <style>
-            /*** STYLES CAROUSEL NUEVOS DESTINOS ***/
-            .destinos {
-                text-align: left;
-                margin: 20px;
-            }
-
-            .carousel-inner img {
-                width: 1051px;
-                height: 465px;
-                object-fit: cover;
-                border-radius: 20px;
-            }
+  
         </style>
         <!--------------------------
         CAROUSEL NUEVOS DESTINOS
         --------------------------->
         <div class="destinos fade-in" >
-            <h2 style="margin-bottom: 20px;" class="txtTitles">Nuevos destinos</h2>
-            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-interval="1000">
-                        <img id="imgCarou1" src="<?= url('/images/img1.png') ?>" class="d-block w-100" alt="Imagen 1">
-                    </div>
-                    <div class="carousel-item" data-interval="1000">
-                        <img id="imgCarou2" src="<?= url('/images/img2.jpg') ?>" class="d-block w-100" alt="Imagen 2">
-                    </div>
-                    <div class="carousel-item" data-interval="1000">
-                        <img id="imgCarou3" src="<?= url('/images/img3.jpg') ?>" class="d-block w-100" alt="Imagen 3">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+             <!-- Incluyendo el carrusel 
+            <h2 style="margin-bottom: -20px;" class="txtTitles" data-aos="fade-up">Nuevos destinos</h2>-->
+            @include('layouts.newdestinos')
+
         </div>
+
         <!--------------------------
         FIN CAROUSEL NUEVOS DESTINOS
         --------------------------->
@@ -714,6 +687,7 @@ select {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                
             }
 
             .promo-container {
@@ -748,7 +722,7 @@ select {
                 transform: translate(-50%, -50%);
                 color: white;
                 text-align: center;
-                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Añade una sombra al texto */
+                text-shadow: 2px 2px 8px rgba(1000, 0, 0, 0.9); /* Añade una sombra al texto */
             }
 
             .promo-content .small-text {
@@ -767,6 +741,7 @@ select {
                 color: white;
                 opacity: 0;
                 transition: opacity 0.3s ease;
+                text-shadow: 4px 4px 16px rgba(1000, 10, 0, 0.9); /* Añade una sombra al texto */
             }
 
             .price .small-text {
@@ -796,9 +771,13 @@ select {
                 z-index: -1;
             }
         </style>
-        <div class="promos fade-in" >
-            <div class="promo-container">
-                <div class="promo-card" style="background-image: url('<?= url('/images/canada.jpg') ?>');">
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+          <script>AOS.init();</script>          
+        
+        <div class="promos">
+            <div class="promo-container"  data-aos="fade-up">
+                <div class="promo-card" style="background-image: url('<?= url('/images/canada.jpg') ?>');" >
                     <div class="promo-content">
                         <p class="small-text">Viaja a</p>
                         <h3>CANADA</h3>
@@ -844,10 +823,92 @@ select {
         FIN DE CARDS PROMOS
         --------------------------->
 
+        <!--------------------------
+        CARDS BENEFICIOS
+--------------------------->
 
-        <div class="destinoss fade-in">
-            <h2>Nuevos destinos</h2>
+<style>
+    /*** STYLES PARA CARDS BENEFICIOS ***/
+
+    .cards-container {
+        display: flex;
+        justify-content: center; /* Centrar las cards en el contenedor */
+        flex-wrap: wrap;
+        gap: 15px; /* Espacio entre las cards */
+        margin-top: 20px; /* Margen superior para separarlas del título */
+    }
+
+    .card {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 20px; /* Borde redondeado */
+        padding: 20px;
+        width: 190px; /* Ancho fijo de las cards */
+        height: 200px; /* Alto fijo de las cards */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+        display: flex;
+        flex-direction: column; /* Para alinear el contenido verticalmente */
+        justify-content: space-between; /* Espacio entre el título y la descripción */
+        transition: transform 0.3s ease; /* Transición para el efecto hover */
+    }
+
+    .card h3 {
+        margin: 0; /* Eliminar márgenes para un mejor ajuste */
+        font-size: 1.25rem;
+    }
+
+    .card p {
+        font-size: 1rem;
+        color: #6c757d;
+        margin: 0; /* Eliminar márgenes para un mejor ajuste */
+    }
+
+    .card:hover {
+        transform: translateY(-5px); /* Efecto de elevar la card al pasar el mouse */
+    }
+
+    @media (max-width: 600px) {
+        .cards-container {
+            flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
+            align-items: center; /* Centrar las cards */
+        }
+    }
+</style>
+
+<div class="beneficios fade-in" data-aos="fade-up">
+    <h2 style="margin-bottom: 40px;" class="txtTitles" data-aos="fade-up">Beneficios</h2>
+    
+    <div class="cards-container">
+        <div class="card">
+            <h3>Card 1</h3>
+            <p>Descripción breve de la Card 1.</p>
         </div>
+        <div class="card">
+            <h3>Card 2</h3>
+            <p>Descripción breve de la Card 2.</p>
+        </div>
+        <div class="card">
+            <h3>Card 3</h3>
+            <p>Descripción breve de la Card 3.</p>
+        </div>
+        <div class="card">
+            <h3>Card 4</h3>
+            <p>Descripción breve de la Card 4.</p>
+        </div>
+        <div class="card">
+            <h3>Card 5</h3>
+            <p>Descripción breve de la Card 5.</p>
+        </div>
+    </div>
+</div>
+
+<!--------------------------
+        FIN DE CARDS BENEFICIOS
+--------------------------->
+
+
+
+
         <div class="destinoss fade-in">
             <h2>Nuevos destinos</h2>
         </div>
@@ -1044,16 +1105,12 @@ window.onload = function() {
                 logoXL.classList.add('hidden');
                 logoCH.classList.remove('hidden');
                 logoCH.classList.add('visible');
-                quienSos.classList.add('visible');
-                quienSos.classList.remove('hidden');
             } else {
                 // Scroll up
                 logoCH.classList.remove('visible');
                 logoCH.classList.add('hidden');
                 logoXL.classList.remove('hidden');
                 logoXL.classList.add('visible');
-                quienSos.classList.add('hidden');
-                quienSos.classList.remove('visible');
             }
         });
     </script>
