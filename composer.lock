@@ -1443,6 +1443,7 @@
         },
         {
             "name": "league/commonmark",
+<<<<<<< HEAD
             "version": "2.5.3",
             "source": {
                 "type": "git",
@@ -1453,6 +1454,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/b650144166dfa7703e62a22e493b853b58d874b0",
                 "reference": "b650144166dfa7703e62a22e493b853b58d874b0",
+=======
+            "version": "2.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/commonmark.git",
+                "reference": "ac815920de0eff6de947eac0a6a94e5ed0fb147c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/ac815920de0eff6de947eac0a6a94e5ed0fb147c",
+                "reference": "ac815920de0eff6de947eac0a6a94e5ed0fb147c",
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
                 "shasum": ""
             },
             "require": {
@@ -1465,8 +1478,13 @@
             },
             "require-dev": {
                 "cebe/markdown": "^1.0",
+<<<<<<< HEAD
                 "commonmark/cmark": "0.31.1",
                 "commonmark/commonmark.js": "0.31.1",
+=======
+                "commonmark/cmark": "0.31.0",
+                "commonmark/commonmark.js": "0.31.0",
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
                 "composer/package-versions-deprecated": "^1.8",
                 "embed/embed": "^4.4",
                 "erusev/parsedown": "^1.0",
@@ -1545,7 +1563,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2024-08-16T11:46:16+00:00"
+=======
+            "time": "2024-07-24T12:52:09+00:00"
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
         },
         {
             "name": "league/config",
@@ -2088,6 +2110,7 @@
         },
         {
             "name": "nette/utils",
+<<<<<<< HEAD
             "version": "v4.0.5",
             "source": {
                 "type": "git",
@@ -2102,6 +2125,22 @@
             },
             "require": {
                 "php": "8.0 - 8.4"
+=======
+            "version": "v4.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/utils.git",
+                "reference": "d3ad0aa3b9f934602cb3e3902ebccf10be34d218"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/utils/zipball/d3ad0aa3b9f934602cb3e3902ebccf10be34d218",
+                "reference": "d3ad0aa3b9f934602cb3e3902ebccf10be34d218",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0 <8.4"
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
             },
             "conflict": {
                 "nette/finder": "<3",
@@ -2168,9 +2207,15 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/utils/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/nette/utils/tree/v4.0.5"
             },
             "time": "2024-08-07T15:39:19+00:00"
+=======
+                "source": "https://github.com/nette/utils/tree/v4.0.4"
+            },
+            "time": "2024-01-17T16:50:36+00:00"
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
         },
         {
             "name": "nikic/php-parser",
@@ -6677,6 +6722,7 @@
         },
         {
             "name": "phpunit/phpunit",
+<<<<<<< HEAD
             "version": "11.3.1",
             "source": {
                 "type": "git",
@@ -6687,6 +6733,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fe179875ef0c14e90b75617002767eae0a742641",
                 "reference": "fe179875ef0c14e90b75617002767eae0a742641",
+=======
+            "version": "11.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
+                "reference": "a8dce73a8938dfec7ac0daa91bdbcaae7d7188a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a8dce73a8938dfec7ac0daa91bdbcaae7d7188a3",
+                "reference": "a8dce73a8938dfec7ac0daa91bdbcaae7d7188a3",
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
                 "shasum": ""
             },
             "require": {
@@ -6707,7 +6765,11 @@
                 "phpunit/php-timer": "^7.0.1",
                 "sebastian/cli-parser": "^3.0.2",
                 "sebastian/code-unit": "^3.0.1",
+<<<<<<< HEAD
                 "sebastian/comparator": "^6.0.2",
+=======
+                "sebastian/comparator": "^6.0.1",
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
                 "sebastian/diff": "^6.0.2",
                 "sebastian/environment": "^7.2.0",
                 "sebastian/exporter": "^6.1.3",
@@ -6757,7 +6819,11 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
+<<<<<<< HEAD
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.1"
+=======
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/11.3.0"
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
             },
             "funding": [
                 {
@@ -6773,7 +6839,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2024-08-13T06:14:23+00:00"
+=======
+            "time": "2024-08-02T03:56:43+00:00"
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
         },
         {
             "name": "sebastian/cli-parser",
@@ -6947,6 +7017,7 @@
         },
         {
             "name": "sebastian/comparator",
+<<<<<<< HEAD
             "version": "6.0.2",
             "source": {
                 "type": "git",
@@ -6957,6 +7028,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/450d8f237bd611c45b5acf0733ce43e6bb280f81",
                 "reference": "450d8f237bd611c45b5acf0733ce43e6bb280f81",
+=======
+            "version": "6.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/comparator.git",
+                "reference": "131942b86d3587291067a94f295498ab6ac79c20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/131942b86d3587291067a94f295498ab6ac79c20",
+                "reference": "131942b86d3587291067a94f295498ab6ac79c20",
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
                 "shasum": ""
             },
             "require": {
@@ -7012,7 +7095,11 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/comparator/issues",
                 "security": "https://github.com/sebastianbergmann/comparator/security/policy",
+<<<<<<< HEAD
                 "source": "https://github.com/sebastianbergmann/comparator/tree/6.0.2"
+=======
+                "source": "https://github.com/sebastianbergmann/comparator/tree/6.0.1"
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
             },
             "funding": [
                 {
@@ -7020,7 +7107,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
             "time": "2024-08-12T06:07:25+00:00"
+=======
+            "time": "2024-07-03T04:48:07+00:00"
+>>>>>>> 997f46b730fc758af8aaa0fdb0734d7808a0219d
         },
         {
             "name": "sebastian/complexity",
