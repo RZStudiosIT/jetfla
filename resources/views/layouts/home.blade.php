@@ -634,11 +634,11 @@ select {
                 color: #262E55;
             }
           </style>
-        </div><br>
+        </div><br><br>
         <div id="quienSos" class="who-we-are" onclick="toggleContent()" data-aos="fade-up">
             <h2 class="txtTitles">¿Quiénes Somos?</h2>
             <div id="extraContent" class="extra-content">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                <p>Lozzrem ipsum dolor sit amet, consectetuer adipiscing elit. 
                     Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis 
                     parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, 
                     pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
@@ -656,7 +656,7 @@ select {
 
                 </p>
             </div>
-        </div>  
+        </div><br><br>  
         
         <style>
   
@@ -712,7 +712,7 @@ select {
 
             .promo-card:hover {
                 transform: scale(1.05);
-                opacity: 0.9;
+                opacity: 1;
             }
 
             .promo-content {
@@ -722,7 +722,10 @@ select {
                 transform: translate(-50%, -50%);
                 color: white;
                 text-align: center;
-                text-shadow: 2px 2px 8px rgba(1000, 0, 0, 0.9); /* Añade una sombra al texto */
+                text-shadow: 2px 2px 8px rgba(20, 0, 0, 0.8); /* Añade una sombra al texto */
+                background: rgba(10, 15, 0.1, 0.5); /* Color de la capa oscura con más transparencia */
+                border-radius: 20px;
+                box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4); /* Difuminado para efecto de "humito" */
             }
 
             .promo-content .small-text {
@@ -741,7 +744,10 @@ select {
                 color: white;
                 opacity: 0;
                 transition: opacity 0.3s ease;
-                text-shadow: 4px 4px 16px rgba(1000, 10, 0, 0.9); /* Añade una sombra al texto */
+                text-shadow: 100px 100px 16px rgba(0, 10, 0, 0.9); /* Añade una sombra al texto */
+                background: rgba(10, 15, 0.1, 0.5); /* Color de la capa oscura con más transparencia */
+                border-radius: 20px;
+                box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4); /* Difuminado para efecto de "humito" */
             }
 
             .price .small-text {
@@ -770,12 +776,33 @@ select {
                 clip-path: polygon(0 85%, 100% 60%, 100% 0, 0% 0%); /* Ajusta los puntos para levantar la esquina */
                 z-index: -1;
             }
+            /* Media query para pantallas móviles */
+            @media (max-width: 768px) {
+                .promo-card {
+                width: 390px;
+                height: 232px;
+
+                }
+                /* Fondo con esquina levantada */
+                .promos:before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 100%;
+                    height:100%;
+                    background-color: #861936; /* Rojo oscuro */
+                    clip-path: polygon(0 100%, 100% 60%, 100% 0, 0% 0%); /* Ajusta los puntos para levantar la esquina */
+                    z-index: -1;
+                }
+
+            }
         </style>
           <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
           <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
           <script>AOS.init();</script>          
-        
-        <div class="promos">
+        <br><br>
+        <div class="promos" >
             <div class="promo-container"  data-aos="fade-up">
                 <div class="promo-card" style="background-image: url('<?= url('/images/canada.jpg') ?>');" >
                     <div class="promo-content">
@@ -818,7 +845,7 @@ select {
                     </div>
                 </div>
             </div>
-        </div>
+        </div><br><br>
         <!--------------------------
         FIN DE CARDS PROMOS
         --------------------------->
@@ -868,7 +895,7 @@ select {
     }
 
     @media (max-width: 600px) {
-        .cards-container {
+        .cards-container {  
             flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
             align-items: center; /* Centrar las cards */
         }
