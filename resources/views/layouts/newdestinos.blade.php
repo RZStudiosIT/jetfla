@@ -25,7 +25,7 @@
         <div id="carouselExample" class="carousel slide w-100" data-bs-ride="carousel" data-aos="fade-up">
             <div class="carousel-inner w-100">
                 <div class="carousel-item active" data-interval="1000">
-                    <img src="<?= url('/images/img1.jpg') ?>" class="d-block w-100" alt="Imagen 1">
+                    <img src="{{ asset('img/img1.jpg') }}" class="d-block w-100" alt="Imagen 1">
                     <div class="carousel-caption">
                         <h5>Destino 1</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="carousel-item" data-interval="1000">
-                    <img src="<?= url('/images/img2.jpg') ?>" class="d-block w-100" alt="Imagen 2">
+                    <img src="{{ asset('img/img2.jpg') }}" class="d-block w-100" alt="Imagen 2">
                     <div class="carousel-caption">
                         <h5>Destino 2</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="carousel-item" data-interval="1000">
-                    <img src="<?= url('/images/img3.jpg') ?>" class="d-block w-100" alt="Imagen 3">
+                    <img src="{{ asset('img/img3.jpg') }}" class="d-block w-100" alt="Imagen 3">
                     <div class="carousel-caption">
                         <h5>Destino 3</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>

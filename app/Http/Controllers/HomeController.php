@@ -10,6 +10,6 @@ class HomeController extends Controller
         podemos pasarle el controller sin especificar metodo ***/
     public function __invoke()
     {
-        return view('layouts/home'); //retornar una vista
+        return view('layouts/nabvar'); //retornar una vista
     }
 }
