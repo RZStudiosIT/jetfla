@@ -10,8 +10,8 @@
     <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
-    <!-- Optional additional CSS -->
-    <link href="../resources/css/nabvar.css" rel="stylesheet">
+    <!-- Optional additional CSS 
+    <link href="../resources/css/nabvar.css" rel="stylesheet">-->
 
     <style>
         @font-face {
@@ -668,184 +668,8 @@ select {
         <!--------------------------
         FIN CAROUSEL NUEVOS DESTINOS
         --------------------------->
-
-        <!--------------------------
-        CARDS PROMOS
-        --------------------------->
-        <style>
-            /*** STYLES PROMOS***/
-            .promos {
-                width: 100%;
-                padding: 40px 0;
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                
-            }
-
-            .promo-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                max-width: 1200px;
-                margin: 0 auto;
-                gap: 20px;
-            }
-
-            .promo-card {
-                width: 517px;
-                height: 232px;
-                background-size: cover;
-                background-position: center;
-                border-radius: 15px;
-                overflow: hidden;
-                position: relative;
-                transition: transform 0.3s ease, opacity 0.3s ease;
-            }
-
-            .promo-card:hover {
-                transform: scale(1.05);
-                opacity: 1;
-            }
-
-            .promo-content {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: white;
-                text-align: center;
-                text-shadow: 2px 2px 8px rgba(20, 0, 0, 0.8); /* Añade una sombra al texto */
-                background: rgba(10, 15, 0.1, 0.5); /* Color de la capa oscura con más transparencia */
-                border-radius: 20px;
-                box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4); /* Difuminado para efecto de "humito" */
-            }
-
-            .promo-content .small-text {
-                font-size: 14px;
-            }
-
-            .promo-content h3 {
-                font-size: 24px;
-                margin: 5px 0;
-            }
-
-            .price {
-                position: absolute;
-                bottom: 20px;
-                right: 20px;
-                color: white;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                text-shadow: 100px 100px 16px rgba(0, 10, 0, 0.9); /* Añade una sombra al texto */
-                background: rgba(10, 15, 0.1, 0.5); /* Color de la capa oscura con más transparencia */
-                border-radius: 20px;
-                box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.4); /* Difuminado para efecto de "humito" */
-            }
-
-            .price .small-text {
-                font-size: 12px;
-                text-align: center;
-            }
-
-            .price h4 {
-                font-size: 18px;
-                margin: 5px 0;
-            }
-
-            .promo-card:hover .price {
-                opacity: 1;
-            }
-
-            /* Fondo con esquina levantada */
-            .promos:before {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                height:100%;
-                background-color: #861936; /* Rojo oscuro */
-                clip-path: polygon(0 85%, 100% 60%, 100% 0, 0% 0%); /* Ajusta los puntos para levantar la esquina */
-                z-index: -1;
-            }
-            /* Media query para pantallas móviles */
-            @media (max-width: 768px) {
-                .promo-card {
-                width: 390px;
-                height: 232px;
-
-                }
-                /* Fondo con esquina levantada */
-                .promos:before {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                    width: 100%;
-                    height:100%;
-                    background-color: #861936; /* Rojo oscuro */
-                    clip-path: polygon(0 100%, 100% 60%, 100% 0, 0% 0%); /* Ajusta los puntos para levantar la esquina */
-                    z-index: -1;
-                }
-
-            }
-        </style>
-          <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-          <script>AOS.init();</script>          
-        <br><br>
-        <div class="promos" >
-            <div class="promo-container"  data-aos="fade-up">
-                <div class="promo-card" style="background-image: url('{{ asset('img/canada.jpg') }}');">
-                    <div class="promo-content">
-                        <p class="small-text">Viaja a</p>
-                        <h3>CANADA</h3>
-                    </div>
-                    <div class="price">
-                        <p class="small-text">Desde</p>
-                        <h4>$199 USD</h4>
-                    </div>
-                </div>
-                <div class="promo-card" style="background-image: url('{{ asset('img/cancun.jpg') }}');">
-                    <div class="promo-content">
-                        <p class="small-text">Viaja a</p>
-                        <h3>CANCÚN</h3>
-                    </div>
-                    <div class="price">
-                        <p class="small-text">Desde</p>
-                        <h4>$199 USD</h4>
-                    </div>
-                </div>
-                <div class="promo-card" style="background-image: url('{{ asset('img/ny.jpg') }}');">
-                    <div class="promo-content">
-                        <p class="small-text">Viaja a</p>
-                        <h3>NUEVA YORK</h3>
-                    </div>
-                    <div class="price">
-                        <p class="small-text">Desde</p>
-                        <h4>$199 USD</h4>
-                    </div>
-                </div>
-                <div class="promo-card" style="background-image: url('{{ asset('img/canada.jpg') }}');">
-                    <div class="promo-content">
-                        <p class="small-text">Viaja a</p>
-                        <h3>DUBAI</h3>
-                    </div>
-                    <div class="price">
-                        <p class="small-text">Desde</p>
-                        <h4>$199 USD</h4>
-                    </div>
-                </div>
-            </div>
-        </div><br><br>
-        <!--------------------------
-        FIN DE CARDS PROMOS
-        --------------------------->
-
-        <!--------------------------
-        CARDS BENEFICIOS
+<!--------------------------
+CARDS BENEFICIOS
 --------------------------->
 
 <style>
@@ -857,6 +681,8 @@ select {
         flex-wrap: wrap;
         gap: 15px; /* Espacio entre las cards */
         margin-top: 20px; /* Margen superior para separarlas del título */
+        overflow: hidden; /* Ocultar overflow para el efecto de carrusel */
+        height: 200px;
     }
 
     .card {
@@ -889,16 +715,23 @@ select {
     }
 
     @media (max-width: 600px) {
-        .cards-container {  
-            flex-direction: column; /* Apilar verticalmente en pantallas pequeñas */
-            align-items: center; /* Centrar las cards */
+        .cards-container {
+            flex-wrap: nowrap; /* No hacer que las cards se envuelvan */
+            overflow-x: hidden; /* Ocultar overflow horizontal */
+            scroll-snap-type: x mandatory; /* Hacer que el scroll encaje automáticamente */
+        }
+
+        .card {
+            scroll-snap-align: start; /* Alinear cards al inicio al hacer scroll */
+            min-width: 100%; /* Mostrar solo una card a la vez */
+            transition: transform 0.5s ease; /* Transición suave al deslizar */
         }
     }
 </style>
 
-<div class="beneficios fade-in" data-aos="fade-up">
+<div class="beneficios fade-in" data-aos="fade-up"><br><br><br>
     <h2 style="margin-bottom: 40px;" class="txtTitles" data-aos="fade-up">Beneficios</h2>
-    
+
     <div class="cards-container">
         <div class="card">
             <h3>Card 1</h3>
@@ -923,29 +756,39 @@ select {
     </div>
 </div>
 
+<script>
+    // JavaScript para el carrusel automático
+    const container = document.querySelector('.cards-container');
+    const cards = document.querySelectorAll('.card');
+    let currentIndex = 0;
+
+    function startAutoScroll() {
+        currentIndex++;
+        
+        if (currentIndex >= cards.length) {
+            currentIndex = 0; // Reiniciar al inicio del carrusel
+        }
+
+        container.scrollTo({
+            left: currentIndex * container.clientWidth,
+            behavior: 'smooth'
+        });
+    }
+
+    // Cambia de card cada 3 segundos
+    setInterval(startAutoScroll, 3000);
+</script>
+
 <!--------------------------
-        FIN DE CARDS BENEFICIOS
+FIN DE CARDS BENEFICIOS
 --------------------------->
 
 
-
-
-        <div class="destinoss fade-in">
-            <h2>Nuevos destinos</h2>
-        </div>
-        <div class="who-we-arae fade-in">
-            <h2>Quiénes Somos</h2>
-        </div>
-        <div class="who-we-arae fade-in">
-            <h2>Quiénes Somos</h2>
-        </div>
-        <div class="who-we-ara fade-in">
-            <h2>Quiénes Somos</h2>
-        </div>
     </div>
-    
-    <footer class="footer">
-        © 2024 Todos los derechos reservados.
+
+   
+    <footer class="footer" style="background-color: #262E55">
+        @include('layouts.footer')
     </footer>
 
     <!-- Bootstrap JS and dependencies -->
