@@ -1,0 +1,140 @@
+CREATE TABLE vuelos (
+    id_vuelo INT AUTO_INCREMENT PRIMARY KEY,
+    origen INT NOT NULL,
+    destino INT NOT NULL,
+    fecha_salida DATETIME NOT NULL,
+    fecha_llegada DATETIME NOT NULL,
+    hora_salida TIME NOT NULL, -- Hora específica de salida
+    hora_llegada TIME NOT NULL, -- Hora específica de llegada
+    costo_base DECIMAL(10, 2) NOT NULL,
+    tua DECIMAL(10, 2) NULL,
+    iva DECIMAL(10, 2) NULL,
+    codigo_vuelo VARCHAR(20) NOT NULL UNIQUE, -- Código único de vuelo
+    FOREIGN KEY (origen) REFERENCES destinos(id_destino),
+    FOREIGN KEY (destino) REFERENCES destinos(id_destino)
+);
+
+CREATE TABLE codigos_promocionales (
+    id_codigo INT AUTO_INCREMENT PRIMARY KEY,
+    codigo VARCHAR(50) NOT NULL UNIQUE,
+    descuento DECIMAL(5, 2) NOT NULL,
+    fecha_inicio DATETIME NOT NULL,
+    fecha_fin DATETIME NOT NULL,
+    estado INT NOT NULL
+);
+
+CREATE TABLE costos_extras (
+    id_extra INT AUTO_INCREMENT PRIMARY KEY,
+    id_vuelo INT NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    costo DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_vuelo) REFERENCES vuelos(id_vuelo)
+);
+
+CREATE TABLE pasajeros (
+    id_pasajero INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    telefono VARCHAR(18) NOT NULL,
+    password VARCHAR(50) NULL -- Campo para almacenar la contraseña del pasajero
+);
+
+CREATE TABLE reservas (
+    id_reserva INT AUTO_INCREMENT PRIMARY KEY,
+    id_pasajero INT NOT NULL,
+    id_vuelo_ida INT NOT NULL,
+    id_vuelo_vuelta INT NULL,
+    fecha_reserva DATETIME NOT NULL,
+    id_extra INT NULL,
+    estado INT NOT NULL, -- 1=activa, 0=vencida, 2=pendiente de pago
+    costo_total DECIMAL(10, 2) NOT NULL,
+    codigo_promocional VARCHAR(50) DEFAULT 'SIN CÓDIGO PROMOCIONAL',
+    hora_vuelo_salida TIME NOT NULL, -- Hora de salida para validar estado
+    hora_vuelo_llegada TIME NULL, -- Hora de llegada del vuelo de regreso
+    codigo_reserva VARCHAR(20) NOT NULL UNIQUE, -- Código único de vuelo
+    FOREIGN KEY (id_extra) REFERENCES costos_extras(id_extra),
+    FOREIGN KEY (id_pasajero) REFERENCES pasajeros(id_pasajero),
+    FOREIGN KEY (id_vuelo_ida) REFERENCES vuelos(id_vuelo),
+    FOREIGN KEY (id_vuelo_vuelta) REFERENCES vuelos(id_vuelo),
+    FOREIGN KEY (codigo_promocional) REFERENCES codigos_promocionales(codigo)
+);
+
+CREATE TABLE administradores (
+    id_admin INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE imagenes_destinos (
+    id_imagen INT AUTO_INCREMENT PRIMARY KEY,
+    id_destino INT NOT NULL,
+    url_imagen VARCHAR(170) NOT NULL,
+    descripcion VARCHAR(70),
+    fecha_subida DATETIME NOT NULL,
+    clima VARCHAR(50) NULL, -- Clima del destino
+    costo_promedio DECIMAL(10, 2) NULL, -- Costo promedio de estancia
+    FOREIGN KEY (id_destino) REFERENCES destinos(id_destino)
+);
+
+CREATE TABLE asientos (
+    id_asiento INT AUTO_INCREMENT PRIMARY KEY,
+    id_vuelo INT NOT NULL,
+    numero_asiento VARCHAR(10) NOT NULL,
+    clase VARCHAR(50) NOT NULL,
+    estado VARCHAR(50) NOT NULL,
+    FOREIGN KEY (id_vuelo) REFERENCES vuelos(id_vuelo)
+);
+
+CREATE TABLE asientos_reservas (
+    id_asiento INT NOT NULL,
+    id_reserva INT NOT NULL,
+    PRIMARY KEY (id_asiento, id_reserva),
+    FOREIGN KEY (id_asiento) REFERENCES asientos(id_asiento),
+    FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
+);
+
+CREATE TABLE faqs (
+    id_faq INT AUTO_INCREMENT PRIMARY KEY,
+    pregunta VARCHAR(255) NOT NULL,
+    respuesta TEXT NOT NULL,
+    fecha_creacion DATETIME NOT NULL,
+    creado_por INT NOT NULL, -- ID del administrador que creó la FAQ
+    FOREIGN KEY (creado_por) REFERENCES administradores(id_admin)
+);
+
+CREATE TABLE destinos (
+    id_destino INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    pais VARCHAR(100) NOT NULL,
+    abrev VARCHAR(10) NULL -- Abreviatura del destino
+);
+
+CREATE TABLE destinos_nuevos (
+    id_destino_nuevo INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT NOT NULL,
+    clima VARCHAR(50) NULL,
+    costo_promocional DECIMAL(10, 2) NULL,
+    url_imagen VARCHAR(255) NULL,
+    fecha_publicacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE equipaje (
+    id_equipaje INT AUTO_INCREMENT PRIMARY KEY,
+    id_reserva INT NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    peso DECIMAL(5, 2) NOT NULL,
+    dimensiones VARCHAR(50) NULL,
+    FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
+);
+CREATE TABLE historial_compras (
+    id_historial INT AUTO_INCREMENT PRIMARY KEY,
+    id_pasajero INT NOT NULL,
+    id_reserva INT NOT NULL,
+    fecha_compra DATETIME NOT NULL,
+    FOREIGN KEY (id_pasajero) REFERENCES pasajeros(id_pasajero),
+    FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
+);
