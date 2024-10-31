@@ -138,3 +138,43 @@ CREATE TABLE historial_compras (
     FOREIGN KEY (id_pasajero) REFERENCES pasajeros(id_pasajero),
     FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
 );
+
+
+
+CREATE TABLE pasajeros_reserva (
+    id_pasajero_reserva INT AUTO_INCREMENT PRIMARY KEY,
+    id_reserva INT NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    tipo_pasajero ENUM('adulto', 'menor', 'bebe') NOT NULL,
+    fecha_nacimiento DATE NULL, -- Fecha de nacimiento
+    edad INT, -- Campo para almacenar la edad calculada
+    FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
+);
+
+DELIMITER //
+
+CREATE TRIGGER trg_calculate_age BEFORE INSERT ON pasajeros_reserva
+FOR EACH ROW
+BEGIN
+    IF NEW.fecha_nacimiento IS NOT NULL THEN
+        SET NEW.edad = TIMESTAMPDIFF(YEAR, NEW.fecha_nacimiento, CURDATE());
+    END IF;
+END //
+
+CREATE TRIGGER trg_update_age BEFORE UPDATE ON pasajeros_reserva
+FOR EACH ROW
+BEGIN
+    IF NEW.fecha_nacimiento IS NOT NULL THEN
+        SET NEW.edad = TIMESTAMPDIFF(YEAR, NEW.fecha_nacimiento, CURDATE());
+    END IF;
+END //
+
+DELIMITER ;
+INSERT INTO pasajeros_reserva (id_reserva, nombre, apellidos, tipo_pasajero, fecha_nacimiento) VALUES
+(1, 'Carlos', 'González', 'adulto', '1990-05-21'),
+(1, 'María', 'Rodríguez', 'adulto', '1988-08-14'),
+(1, 'Sofía', 'González', 'menor', '2015-03-11'),
+(2, 'Luis', 'Pérez', 'adulto', '1992-11-05'),
+(2, 'Daniel', 'Pérez', 'bebe', '2023-06-20');
+
